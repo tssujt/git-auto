@@ -11,8 +11,8 @@
 ##  git-auto -o -p;; execute once
 
 
-#set -e
-#set -x
+set -e
+set -x
 
 usage="usage: $0
     [-d <git directory>]
@@ -55,7 +55,7 @@ fi
 auto-commit-and-push() {
   if ! [[ $(git status) =~ "working tree clean" ]]; then
     git add .
-    git commit -m "auto commit"
+    git commit -m "Auto saved by git-auto"
 
     if [[ 1 == "${push_to_server}" ]]; then
       git push "${server}" "${branch}"
